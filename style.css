@@ -102,10 +102,12 @@ body::after {
 }
 
 @keyframes caret-blink {
+
     0%,
     49% {
         border-right-color: var(--primary);
     }
+
     50%,
     100% {
         border-right-color: transparent;
@@ -129,6 +131,12 @@ body::after {
     border-radius: 999px;
     padding: 6px 12px;
     font-size: 0.85rem;
+}
+
+.quick-nav a.is-active {
+    background: #005e00;
+    border-color: #005e00;
+    color: #fff;
 }
 
 .container {
@@ -241,7 +249,7 @@ body::after {
 
 .carousel-dot {
     width: 5px;
-    height:5px;
+    height: 5px;
     border: 0;
     background: #4b4b4b;
     cursor: pointer;
@@ -250,12 +258,19 @@ body::after {
 .carousel-dot.is-active {
     background: var(--primary);
 }
-.carousel-dot:nth-child(3){display: none;}
 
+.carousel-dot:nth-child(3) {
+    display: none;
+}
+.carousel-dot:nth-child(3){display: none;}
 .infobox h3 {
     margin-top: 16px;
     margin-bottom: 12px;
     color: var(--primary);
+}
+
+#redes {
+    text-align: center;
 }
 
 .infobox p {
@@ -412,12 +427,18 @@ button:focus-visible {
     background: #1b1b1b;
 }
 
+.floating-nav a.is-active {
+    background: #005e00;
+    border-color: #005e00;
+    color: #fff;
+}
+
 .lightbox {
     position: fixed;
     inset: 0;
     z-index: 5000;
     background: rgba(0, 0, 0, 0.85);
-       -webkit-backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
     display: flex;
     align-items: center;
@@ -459,6 +480,7 @@ body.lightbox-open {
     0% {
         background-position: 200% 0;
     }
+
     100% {
         background-position: -200% 0;
     }

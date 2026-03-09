@@ -33,10 +33,11 @@ function initFloatingNav() {
     const floatingNav = document.querySelector(".floating-nav");
     if (!floatingNav) return;
 
-    const revealAfter = 260;
+    const revealAfter = 150;
 
     function onScroll() {
         const shouldShow = window.scrollY > revealAfter;
+        window.scrollY > revealAfter
         floatingNav.classList.toggle("is-visible", shouldShow);
     }
 
@@ -69,6 +70,7 @@ function initTopLinkScroll() {
 
     function easeInOutCubic(t) {
         return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        // esta funcao faz a animacao de scroll ficar mais suave, acelerando no inicio e desacelerando no final. com a logica de que para os primeiros 50% do tempo, a posicao do scroll aumenta mais rapidamente, e para os ultimos 50%, a posicao aumenta mais lentamente, criando um efeito de ease-in-out. vemos isso onde para t < 0.5, a funcao retorna 4 * t^3, o que faz o scroll acelerar, e para t >= 0.5, a funcao retorna 1 - ((-2 * t + 2)^3) / 2, o que faz o scroll desacelerar.
     }
 
     topLink.addEventListener("click", (event) => {
@@ -95,6 +97,51 @@ function initTopLinkScroll() {
 
         requestAnimationFrame(step);
     });
+}
+
+function initSectionTopSync() {
+    const navLinks = Array.from(
+        document.querySelectorAll('.quick-nav a[href^="#"], .floating-nav a[href^="#"]')
+    );
+    if (!navLinks.length) return;
+
+    const sectionIds = Array.from(new Set(
+        navLinks
+            .map((link) => link.getAttribute("href"))
+            .filter((href) => href && href.startsWith("#"))
+    ));
+
+    const sections = sectionIds
+        .map((id) => document.querySelector(id))
+        .filter(Boolean);
+    if (!sections.length) return;
+
+    function setActive(id) {
+        navLinks.forEach((link) => {
+            const isActive = link.getAttribute("href") === id;
+            link.classList.toggle("is-active", isActive);
+            link.setAttribute("aria-current", isActive ? "location" : "false");
+        });
+    }
+
+    function updateByScroll() {
+        const triggerY = 120;
+        let currentSection = sections[0];
+
+        sections.forEach((section) => {
+            const top = section.getBoundingClientRect().top;
+            if (top <= triggerY) currentSection = section;
+        });
+
+        const id = `#${currentSection.id}`;
+        setActive(id);
+        if (history.replaceState) {
+            history.replaceState(null, "", id);
+        }
+    }
+
+    updateByScroll();
+    window.addEventListener("scroll", updateByScroll, { passive: true });
 }
 
 function startTypingEffect() {
@@ -257,4 +304,5 @@ document.addEventListener("DOMContentLoaded", () => {
     initFloatingNav();
     initImageSkeletons();
     initTopLinkScroll();
+    initSectionTopSync();
 });
