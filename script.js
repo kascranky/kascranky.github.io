@@ -1,6 +1,7 @@
 function calculateAge(birthYear, birthMonthIndex, birthDay) {
     const today = new Date();
     let age = today.getFullYear() - birthYear;
+    
     const hasHadBirthday =
         today.getMonth() > birthMonthIndex ||
         (today.getMonth() === birthMonthIndex && today.getDate() >= birthDay);
@@ -16,7 +17,7 @@ function updateAge() {
     const ageEl = document.getElementById("age-value");
     if (!ageEl) return;
 
-    const age = calculateAge(2003, 9, 10);
+    const age = calculateAge(2003, 10, 10);
     ageEl.textContent = String(age);
 }
 
