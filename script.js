@@ -126,7 +126,6 @@ function initPhotoCarousel() {
     const dots = Array.from(carousel.querySelectorAll(".carousel-dot"));
     const prevBtn = carousel.querySelector('[data-dir="prev"]');
     const nextBtn = carousel.querySelector('[data-dir="next"]');
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const lightbox = document.getElementById("photo-lightbox");
     const lightboxImage = document.getElementById("lightbox-image");
     const lightboxCloseBtn = lightbox ? lightbox.querySelector(".lightbox-close") : null;
@@ -186,7 +185,6 @@ function initPhotoCarousel() {
 
     function restartAutoPlay() {
         if (timer) clearInterval(timer);
-        if (reduceMotion) return;
 
         timer = setInterval(() => {
             if (!document.hidden) goTo(currentIndex + 1);
