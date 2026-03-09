@@ -1,20 +1,30 @@
 <!doctype html>
-<html lang="pt-mz">
+<html lang="pt-MZ">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Biografia oficial de Francisco Armando Chico (Kas Cranky), artista, produtor, designer e programador mocambicano."
+    />
+    <meta name="theme-color" content="#0f0f0f" />
+    <meta property="og:title" content="Francisco Armando Chico | Kas Cranky" />
+    <meta
+      property="og:description"
+      content="Historia, carreira, atuacao profissional e redes sociais de Francisco Armando Chico."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="IMG_3616.JPG" />
     <title>Francisco Armando Chico | Kas Cranky</title>
     <link rel="stylesheet" href="style.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-    />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"
     />
   </head>
-  <body>
+  <body id="topo">
+    <a class="skip-link" href="#conteudo">Saltar para conteudo principal</a>
+
     <header class="hero">
       <div>
         <h1 class="typing-title" data-text="FRANCISCO ARMANDO CHICO">
@@ -26,14 +36,24 @@
       </div>
     </header>
 
+    <nav class="quick-nav" aria-label="Navegacao rapida">
+      <a href="#biografia">Biografia</a>
+      <a href="#musica">Musica</a>
+      <a href="#tecnologia">Tecnologia</a>
+      <a href="#mentalidade">Mentalidade</a>
+      <a href="#redes">Redes</a>
+    </nav>
+
     <div class="container">
       <div class="grid">
         <aside class="infobox">
           <img
-            src="IMG_3616.jpg"
+            src="IMG_3616.JPG"
             class="profile"
             alt="Francisco Armando Chico"
             title="Francisco Armando Chico"
+            loading="lazy"
+            decoding="async"
           />
 
           <h3>Infocaixa (Resumo)</h3>
@@ -56,12 +76,13 @@
           </p>
 
           <hr />
-          <h3>Redes Sociais</h3>
-          <div class="social-links">
+          <h3 id="redes">Redes Sociais</h3>
+          <div class="social-links" aria-label="Links para redes sociais">
             <a
               href="https://instagram.com/kascranky"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Instagram de Kas Cranky"
               ><i
                 class="fa-brands fa-instagram social-icon"
                 aria-hidden="true"
@@ -72,6 +93,7 @@
               href="https://facebook.com/kascranky"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Facebook de Kas Cranky"
               ><i
                 class="fa-brands fa-facebook-f social-icon"
                 aria-hidden="true"
@@ -82,6 +104,7 @@
               href="https://soundcloud.com/kascranky"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="SoundCloud de Kas Cranky"
               ><i
                 class="fa-brands fa-soundcloud social-icon"
                 aria-hidden="true"
@@ -92,6 +115,7 @@
               href="https://tiktok.com/@kascranky"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="TikTok de Kas Cranky"
               ><i class="fa-brands fa-tiktok social-icon" aria-hidden="true"></i
               >TikTok - @kascranky</a
             >
@@ -99,6 +123,7 @@
               href="https://audiomack.com/kascranky"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Audiomack de Kas Cranky"
               ><i
                 class="fa-solid fa-headphones social-icon"
                 aria-hidden="true"
@@ -108,7 +133,7 @@
           </div>
         </aside>
 
-        <main class="content-box">
+        <main class="content-box" id="conteudo">
           <p>
             <strong>Francisco Armando Chico</strong> (Beira, 10 de outubro),
             amplamente conhecido pelos nomes artisticos
@@ -123,7 +148,7 @@
             progresso consciente e a superacao atraves do desporto e da arte.
           </p>
 
-          <h2>Biografia e Vida Pregressa</h2>
+          <h2 id="biografia">Biografia e Vida Pregressa</h2>
           <p>
             Francisco nasceu e cresceu na cidade da Beira. A sua base etica e
             disciplina foram moldadas na Igreja Adventista do Setimo Dia, onde
@@ -132,7 +157,7 @@
             completando as classes e conquistando os emblemas D1, D2 e D3.
           </p>
 
-          <h2>Formacao em Tecnologia (2016)</h2>
+          <h2 id="tecnologia">Formacao em Tecnologia (2016)</h2>
           <p>
             Em 2016, iniciou o seu percurso na programacao de forma autodidata.
             Com apoio de Zaigon (Zeca Erasmo) e Billy O'McCall (Orlando
@@ -143,7 +168,7 @@
             <strong>yknarcsak</strong>.
           </p>
 
-          <h2>Carreira Musical</h2>
+          <h2 id="musica">Carreira Musical</h2>
           <p>
             Embora a base musical tenha comecado no canto coral, a transicao
             para a musica secular e profissional ocorreu em 2017. Sob o nome Kas
@@ -215,7 +240,7 @@
             gestao de deploys via GitHub Pages.
           </p>
 
-          <h2>Mentalidade e Disciplina</h2>
+          <h2 id="mentalidade">Mentalidade e Disciplina</h2>
           <p>
             A pratica tecnologica de Francisco e indissociavel da sua rotina de
             meditacao e das maratonas de longa distancia. Ele aplica o rigor da
@@ -242,6 +267,7 @@
       &copy; <span id="footer-year-range">2016 - 2026</span> Unkvoices Studio |
       O Cientista da Propria Vida.
     </footer>
+    <a class="top-link" href="#topo" aria-label="Voltar ao topo">Topo</a>
 
     <script src="script.js"></script>
   </body>
