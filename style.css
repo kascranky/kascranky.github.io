@@ -403,6 +403,9 @@ button:focus-visible {
     opacity: 0;
     transform: translateY(8px);
     pointer-events: none;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto;
+    padding-right: 4px;
 }
 
 .floating-nav.is-visible {
