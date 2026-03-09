@@ -250,6 +250,7 @@ body::after {
 .carousel-dot.is-active {
     background: var(--primary);
 }
+.carousel-dot:nth-child(3){display: none;}
 
 .infobox h3 {
     margin-top: 16px;
@@ -269,12 +270,23 @@ hr {
 }
 
 .social-links a {
-    color: var(--primary);
+    color: #7dff8d;
     text-decoration: none;
     display: flex;
     align-items: center;
-    margin: 9px 0;
-    transition: transform 0.25s ease;
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid #005e00;
+    background: rgba(0, 94, 0, 0.2);
+    transition: transform 0.5s ease, background-color 0.5s ease, color 0.5s ease,
+        box-shadow 0.5s ease;
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
 }
 
 .social-icon {
@@ -284,7 +296,10 @@ hr {
 }
 
 .social-links a:hover {
+    background: #005e00;
+    color: #ffffff;
     transform: translateX(6px);
+    box-shadow: 0 10px 24px rgba(0, 94, 0, 0.35);
 }
 
 .content-box {
