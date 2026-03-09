@@ -28,6 +28,40 @@ function updateFooterYearRange() {
     yearEl.textContent = `2016 - ${currentYear}`;
 }
 
+function initFloatingNav() {
+    const floatingNav = document.querySelector(".floating-nav");
+    if (!floatingNav) return;
+
+    const revealAfter = 260;
+
+    function onScroll() {
+        const shouldShow = window.scrollY > revealAfter;
+        floatingNav.classList.toggle("is-visible", shouldShow);
+    }
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+}
+
+function initImageSkeletons() {
+    const images = Array.from(document.querySelectorAll("img.skeleton-image"));
+    if (!images.length) return;
+
+    images.forEach((image) => {
+        function markAsLoaded() {
+            image.classList.add("is-loaded");
+        }
+
+        if (image.complete && image.naturalWidth > 0) {
+            markAsLoaded();
+            return;
+        }
+
+        image.addEventListener("load", markAsLoaded, { once: true });
+        image.addEventListener("error", markAsLoaded, { once: true });
+    });
+}
+
 function startTypingEffect() {
     const titleEl = document.querySelector(".typing-title");
     if (!titleEl) return;
@@ -187,4 +221,6 @@ document.addEventListener("DOMContentLoaded", () => {
     updateFooterYearRange();
     startTypingEffect();
     initPhotoCarousel();
+    initFloatingNav();
+    initImageSkeletons();
 });
