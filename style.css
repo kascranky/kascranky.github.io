@@ -40,7 +40,7 @@ body {
 }
 
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.84)), url('IMG_3616.jpg');
+    background: linear-gradient(rgba(0, 0, 0, 0.62), rgba(0, 0, 0, 0.84)), url('slide3.jpg');
     background-size: cover;
     background-position: center;
     min-height: 360px;
