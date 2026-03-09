@@ -424,6 +424,9 @@ button:focus-visible {
     font-size: 0.78rem;
     font-weight: 600;
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 }
 
 .floating-nav a:hover {
