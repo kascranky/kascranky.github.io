@@ -47,14 +47,81 @@
     <div class="container">
       <div class="grid">
         <aside class="infobox">
-          <img
-            src="IMG_3616.JPG"
-            class="profile"
-            alt="Francisco Armando Chico"
-            title="Francisco Armando Chico"
-            loading="lazy"
-            decoding="async"
-          />
+          <section class="carousel" aria-label="Galeria de fotos">
+            <div class="carousel-track" id="photo-carousel-track">
+              <img
+                src="IMG_3616.JPG"
+                class="profile carousel-slide is-active"
+                alt="Francisco Armando Chico - Foto 1"
+                title="Francisco Armando Chico - Foto 1"
+                loading="lazy"
+                decoding="async"
+                data-slide="0"
+              />
+              <img
+                src="slide1.jpg"
+                class="profile carousel-slide"
+                alt="Francisco Armando Chico - Foto 2"
+                title="Francisco Armando Chico - Foto 2"
+                loading="lazy"
+                decoding="async"
+                data-slide="1"
+              />
+              <img
+                src="slide2.jpg"
+                class="profile carousel-slide"
+                alt="Francisco Armando Chico - Foto 3"
+                title="Francisco Armando Chico - Foto 3"
+                loading="lazy"
+                decoding="async"
+                data-slide="2"
+              />
+            </div>
+            <div class="carousel-controls">
+              <button
+                type="button"
+                class="carousel-btn"
+                data-dir="prev"
+                aria-label="Foto anterior"
+              >
+                <i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button
+                type="button"
+                class="carousel-btn"
+                data-dir="next"
+                aria-label="Proxima foto"
+              >
+                <i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+            <div class="carousel-dots" role="tablist" aria-label="Selecionar foto">
+              <button
+                type="button"
+                class="carousel-dot is-active"
+                data-slide-to="0"
+                role="tab"
+                aria-selected="true"
+                aria-label="Ir para foto 1"
+              ></button>
+              <button
+                type="button"
+                class="carousel-dot"
+                data-slide-to="1"
+                role="tab"
+                aria-selected="false"
+                aria-label="Ir para foto 2"
+              ></button>
+              <button
+                type="button"
+                class="carousel-dot"
+                data-slide-to="2"
+                role="tab"
+                aria-selected="false"
+                aria-label="Ir para foto 3"
+              ></button>
+            </div>
+          </section>
 
           <h3>Infocaixa (Resumo)</h3>
           <p><strong>Nome Proprio:</strong> Francisco Armando Chico</p>

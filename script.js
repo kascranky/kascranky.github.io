@@ -57,8 +57,84 @@ function startTypingEffect() {
     }, speedMs);
 }
 
+function initPhotoCarousel() {
+    const carousel = document.querySelector(".carousel");
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll(".carousel-slide"));
+    const dots = Array.from(carousel.querySelectorAll(".carousel-dot"));
+    const prevBtn = carousel.querySelector('[data-dir="prev"]');
+    const nextBtn = carousel.querySelector('[data-dir="next"]');
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (!slides.length) return;
+
+    let currentIndex = 0;
+    let timer = null;
+
+    function render(index) {
+        slides.forEach((slide, slideIndex) => {
+            slide.classList.toggle("is-active", slideIndex === index);
+        });
+
+        dots.forEach((dot, dotIndex) => {
+            const isActive = dotIndex === index;
+            dot.classList.toggle("is-active", isActive);
+            dot.setAttribute("aria-selected", String(isActive));
+        });
+    }
+
+    function goTo(index) {
+        const lastIndex = slides.length - 1;
+        if (index < 0) {
+            currentIndex = lastIndex;
+        } else if (index > lastIndex) {
+            currentIndex = 0;
+        } else {
+            currentIndex = index;
+        }
+        render(currentIndex);
+    }
+
+    function restartAutoPlay() {
+        if (timer) clearInterval(timer);
+        if (reduceMotion) return;
+
+        timer = setInterval(() => {
+            if (!document.hidden) goTo(currentIndex + 1);
+        }, 4000);
+    }
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            goTo(currentIndex - 1);
+            restartAutoPlay();
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            goTo(currentIndex + 1);
+            restartAutoPlay();
+        });
+    }
+
+    dots.forEach((dot) => {
+        dot.addEventListener("click", () => {
+            const targetIndex = Number(dot.getAttribute("data-slide-to"));
+            if (Number.isNaN(targetIndex)) return;
+            goTo(targetIndex);
+            restartAutoPlay();
+        });
+    });
+
+    render(currentIndex);
+    restartAutoPlay();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     updateAge();
     updateFooterYearRange();
     startTypingEffect();
+    initPhotoCarousel();
 });
