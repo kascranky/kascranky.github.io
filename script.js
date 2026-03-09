@@ -66,11 +66,38 @@ function initPhotoCarousel() {
     const prevBtn = carousel.querySelector('[data-dir="prev"]');
     const nextBtn = carousel.querySelector('[data-dir="next"]');
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const lightbox = document.getElementById("photo-lightbox");
+    const lightboxImage = document.getElementById("lightbox-image");
+    const lightboxCloseBtn = lightbox ? lightbox.querySelector(".lightbox-close") : null;
 
     if (!slides.length) return;
 
     let currentIndex = 0;
     let timer = null;
+    let lastFocusedElement = null;
+
+    function openLightbox(sourceImage) {
+        if (!lightbox || !lightboxImage || !sourceImage) return;
+
+        lightboxImage.src = sourceImage.currentSrc || sourceImage.src;
+        lightboxImage.alt = sourceImage.alt || "Foto ampliada";
+        lightbox.hidden = false;
+        document.body.classList.add("lightbox-open");
+        lastFocusedElement = document.activeElement;
+        if (lightboxCloseBtn) lightboxCloseBtn.focus();
+    }
+
+    function closeLightbox() {
+        if (!lightbox || !lightboxImage) return;
+
+        lightbox.hidden = true;
+        lightboxImage.src = "";
+        lightboxImage.alt = "";
+        document.body.classList.remove("lightbox-open");
+        if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+            lastFocusedElement.focus();
+        }
+    }
 
     function render(index) {
         slides.forEach((slide, slideIndex) => {
@@ -126,6 +153,36 @@ function initPhotoCarousel() {
             goTo(targetIndex);
             restartAutoPlay();
         });
+    });
+
+    slides.forEach((slide) => {
+        slide.tabIndex = 0;
+        slide.setAttribute("role", "button");
+        slide.setAttribute("aria-label", "Abrir foto em tamanho maior");
+
+        slide.addEventListener("click", () => openLightbox(slide));
+        slide.addEventListener("keydown", (event) => {
+            if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                openLightbox(slide);
+            }
+        });
+    });
+
+    if (lightboxCloseBtn) {
+        lightboxCloseBtn.addEventListener("click", closeLightbox);
+    }
+
+    if (lightbox) {
+        lightbox.addEventListener("click", (event) => {
+            if (event.target === lightbox) closeLightbox();
+        });
+    }
+
+    document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && lightbox && !lightbox.hidden) {
+            closeLightbox();
+        }
     });
 
     render(currentIndex);
