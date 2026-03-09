@@ -33,13 +33,6 @@ function startTypingEffect() {
     if (!titleEl) return;
 
     const fullText = titleEl.getAttribute("data-text") || titleEl.textContent || "";
-    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-    if (reduceMotion) {
-        titleEl.textContent = fullText;
-        titleEl.classList.add("done");
-        return;
-    }
 
     titleEl.textContent = "";
 
