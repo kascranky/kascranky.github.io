@@ -240,9 +240,8 @@ body::after {
 }
 
 .carousel-dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
+    width: 5px;
+    height:5px;
     border: 0;
     background: #4b4b4b;
     cursor: pointer;
