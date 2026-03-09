@@ -34,15 +34,44 @@ function initFloatingNav() {
     if (!floatingNav) return;
 
     const revealAfter = 150;
+    const autoHideDelayMs = 1500;
+    let hideTimer = null;
+
+    function clearHideTimer() {
+        if (hideTimer) {
+            clearTimeout(hideTimer);
+            hideTimer = null;
+        }
+    }
+
+    function scheduleHide() {
+        clearHideTimer();
+        if (window.scrollY <= revealAfter) return;
+
+        hideTimer = setTimeout(() => {
+            floatingNav.classList.remove("is-visible");
+        }, autoHideDelayMs);
+    }
 
     function onScroll() {
         const shouldShow = window.scrollY > revealAfter;
-        window.scrollY > revealAfter
         floatingNav.classList.toggle("is-visible", shouldShow);
+        if (shouldShow) {
+            scheduleHide();
+        } else {
+            clearHideTimer();
+        }
     }
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
+    floatingNav.addEventListener("mouseenter", () => {
+        clearHideTimer();
+        if (window.scrollY > revealAfter) {
+            floatingNav.classList.add("is-visible");
+        }
+    });
+    floatingNav.addEventListener("mouseleave", scheduleHide);
 }
 
 function initImageSkeletons() {

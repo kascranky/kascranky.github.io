@@ -7,13 +7,13 @@
 }
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; 
 }
 
 * {
     box-sizing: border-box;
     transition-property: color, background-color, border-color, transform, opacity, box-shadow, filter;
-    transition-duration: 0.5s;
+    transition-duration: 2s;
     transition-timing-function: ease;
 }
 
