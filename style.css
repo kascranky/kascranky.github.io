@@ -216,6 +216,7 @@ body::after {
     justify-content: space-between;
     padding: 0 8px;
     pointer-events: none;
+    z-index: 4;
 }
 
 .carousel-btn {
@@ -234,6 +235,8 @@ body::after {
     justify-content: center;
     gap: 7px;
     margin-top: 10px;
+    position: relative;
+    z-index: 4;
 }
 
 .carousel-dot {
