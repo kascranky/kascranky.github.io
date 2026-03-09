@@ -15,7 +15,9 @@
     />
     <meta property="og:type" content="website" />
     <meta property="og:image" content="me.png" />
-    <!-- link -->
+    <link rel="icon" type="image/png" href="me.png" />
+    <link rel="shortcut icon" href="me.png" />
+    <link rel="apple-touch-icon" href="me.png" />
     <title>Francisco Armando Chico | Kas Cranky</title>
     <link rel="stylesheet" href="style.css" />
     <link
@@ -55,7 +57,8 @@
                 class="profile carousel-slide is-active skeleton-image"
                 alt="Francisco Armando Chico - Foto 1"
                 title="Francisco Armando Chico - Foto 1"
-                loading="lazy"
+                loading="eager"
+                fetchpriority="high"
                 decoding="async"
                 data-slide="0"
               />
@@ -270,7 +273,15 @@
                 >Orgulho</a
               >"</strong
             >, marco da sua entrada na indústria musical. Atualmente, opera o
-            <strong>Unkvoices Studio</strong>, atuando como produtor e
+            <strong>
+               <a
+                href="https://unkvoicesprod.github.io/"
+                style="text-decoration: none; color: #31ff31;"
+                title="Unkvoices Studio" target="_blank" rel="noopener"
+                >
+              Unkvoices Studio </a>
+            
+            </strong>, atuando como produtor e
             engenheiro de áudio.
           </p>
 
@@ -278,7 +289,8 @@
           <p>
             Como maratonista, utiliza a corrida de longa distância (com recordes
             superiores a 18,7 km) como prática física e ferramenta de clareza
-            mental. Essa vivência consolidou o conceito Slowxguy, uma identidade
+            mental. <br>
+            Essa vivência consolidou o conceito <i><strong>Slowxguy</strong></i>, uma identidade
             que defende paciência estratégica e constância como chaves para
             estabilidade financeira e crescimento pessoal.
           </p>
@@ -300,7 +312,7 @@
             </li>
           </ul>
 
-          <h2>Programador</h2>
+          <h2>Programador (dev lab)</h2>
           <p>
             A trajetória de Francisco no desenvolvimento de software é marcada
             por uma abordagem full-stack e pela criação de plataformas autorais
@@ -311,25 +323,29 @@
 
           <ol>
             <li>
-              <strong>SoftSafe Core (fundado em 2025):</strong> desenvolvimento
+              <strong>SoftSafe Core (fundado em 2025)</strong> <br>
+              desenvolvimento
               de software robusto e soluções web personalizadas, com foco em
               aplicações escaláveis, segurança de dados e eficiência de
               interface (UI/UX).
             </li>
             <li>
-              <strong>Ecossistema Digital Viva Leve (lançado em 2024):</strong>
+              <strong>Ecossistema Digital Viva Leve (lançado em 2024)</strong><br>
               plataforma Viva Leve Saúde e Bem-Estar para promover saúde mental,
               espiritualidade e autoconhecimento.
             </li>
             <li>
-              <strong>Unkvoices Digital (desde 2018):</strong> presença digital
+              <strong>Unkvoices Digital (desde 2018)</strong> <br>
+              presença digital
               da produtora Unkvoices Prod, evoluindo para uma plataforma de
               distribuição musical autônoma.
             </li>
           </ol>
 
           <p>
-            <strong>Domínio Técnico:</strong> HTML5, CSS3, JavaScript,
+            <strong>Domínio Técnico</strong> <br>
+           <i>"HTML5 | CSS3 | JavaScript | Python | nodeJs"</i> ,
+
             arquiteturas front-end e back-end, SEO, aplicações multiplataforma e
             gestão de deploys via GitHub Pages.
           </p>
@@ -342,7 +358,7 @@
             abordagem é sintetizada em dois mantras:
           </p>
 
-          <blockquote>
+          <blockquote> 
             <p>"Seja o cientista da própria vida."</p>
             <p>"O que é verdadeiro, irá prosperar."</p>
           </blockquote>
@@ -350,10 +366,12 @@
           <div class="activi">
             <span class="tag">Programador</span>
             <span class="tag">Designer</span>
-            <span class="tag">Produtor</span>
+            <span class="tag">Produtor Musical</span>
             <span class="tag">Maratonista</span>
           </div>
+
         </main>
+
       </div>
     </div>
 
@@ -384,7 +402,7 @@
       <button type="button" class="lightbox-close" aria-label="Fechar foto">
         <i class="fa-solid fa-xmark" aria-hidden="true"></i>
       </button>
-      <img id="lightbox-image" src="" alt="" loading="eager" decoding="sync" />
+      <img id="lightbox-image" src="" alt="" loading="lazy" decoding="async" />
     </div>
 
     <script src="script.js"></script>

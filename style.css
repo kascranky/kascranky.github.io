@@ -183,9 +183,10 @@ body::after {
     object-fit: cover;
     cursor: zoom-in;
     opacity: 0;
-    visibility: hidden;
+    z-index: 1;
     pointer-events: none;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
+    transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: opacity;
 }
 
 .skeleton-image {
@@ -201,7 +202,7 @@ body::after {
 
 .carousel-slide.is-active {
     opacity: 1;
-    visibility: visible;
+    z-index: 2;
     pointer-events: auto;
 }
 
