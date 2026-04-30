@@ -264,7 +264,6 @@ body::after {
 .carousel-dot:nth-child(3) {
     display: none;
 }
-.carousel-dot:nth-child(3){display: none;}
 .infobox h3 {
     margin-top: 16px;
     margin-bottom: 12px;

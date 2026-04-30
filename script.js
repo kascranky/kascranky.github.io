@@ -17,7 +17,7 @@ function updateAge() {
     const ageEl = document.getElementById("age-value");
     if (!ageEl) return;
 
-    const age = calculateAge(2003, 10, 10);
+    const age = calculateAge(2003, 9, 10);
     ageEl.textContent = String(age);
 }
 

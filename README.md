@@ -1,4 +1,4 @@
-# Kas Cranky | Site Oficial
+﻿# Kas Cranky | Site Oficial
 
 Site estático de biografia e portfólio de **Francisco Armando Chico (Kas Cranky)**, com foco em apresentação pessoal, carreira e redes sociais.
 
